@@ -1,2 +1,2 @@
 15/02/24-
-1. Run the project using npm start
+1. Run the multivendor backend project using npm run dev
