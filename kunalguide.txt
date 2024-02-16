@@ -1,2 +1,5 @@
 15/02/24-
 1. Run the multivendor backend project using npm run dev
+
+16/2/24-
+1. using the local mongodb database instead mongodb atlas
