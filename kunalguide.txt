@@ -3,3 +3,6 @@
 
 16/2/24-
 1. using the local mongodb database instead mongodb atlas
+2. Give the name of model like UserModel, and  for  controller like userControllers
+3. our upload folder is within backend
+4. copy the content of .env.example and make the .env file in root directory and paste in the .env file
