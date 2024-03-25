@@ -3,14 +3,14 @@ const mongoose = require('mongoose')
 const bcrypt = require("bcryptjs");
 
 
-const userSchema = new mongoose.Schema({
+const shopSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: [true, 'please enter your name!']
+        required: [true, 'please enter your shop name!']
     },
     email: {
         type: String,
-        required: [true, 'plase enter your email!']
+        required: [true, 'plase enter your shop email!']
     },
     password: {
         type: String,
@@ -18,37 +18,45 @@ const userSchema = new mongoose.Schema({
         minLength: [4, "password should be greater than 4 characters"],
         select: false,
     },
-    phoneNumber: {
-        type: Number
+    description: {
+        type: String,
+
+    },
+    rating:{
+        type:Number
+    },
+    address: {
+        type: String,
+        required: true
     },
     avatar: {
         type: String,
     },
     role: {
         type: String,
-        default: "user"
+        default: "Seller"
     },
-    addresses: [
-        {
-            country: { type: String },
-            state: { type: String },
-            city: { type: String },
-            address1: { type: String },
-            address2: { type: String },
-            zipCode: { type: Number },
-            addressType: { type: String }
+    zipcode: {
+        type: Number,
+        required: true
+    },
+    phoneNumber: {
+        type: Number,
+        required: true
+    },
+    resetPasswordToken: String,
+    resetPasswordTime: Date,
 
-        }
-    ]
 
 },
     {
         timestamps: true
-    })
+    },
+)
 
 
 // hash password
-userSchema.pre("save", async function (next) {
+shopSchema.pre("save", async function (next) {
     if (!this.isModified("password"))
         next();
 
@@ -59,4 +67,4 @@ userSchema.pre("save", async function (next) {
 
 
 
-module.exports = mongoose.model("User", userSchema)
+module.exports = mongoose.model("Shop", shopSchema)

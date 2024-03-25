@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 
-const sendToken = (user, statusCode, res) => {
+const sendShopToken = (user, statusCode, res) => {
     const id = user._id;
 
     console.log(id);
@@ -13,11 +13,11 @@ const sendToken = (user, statusCode, res) => {
         secure: true // Add this line
     };
 
-    res.status(statusCode).cookie("token", token, options).json({
+    res.status(statusCode).cookie("seller_token", token, options).json({
         success: true,
         user,
         token
     });
 };
 
-module.exports = sendToken;
+module.exports = sendShopToken;
